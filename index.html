@@ -1,16 +1,55 @@
+<!DOCTYPE html>
 <html>
-    <head>
+  <head>
+    <title>Simple Interest Calculator</title>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="maindiv">
+      <header>
         <h1>Simple Interest Calculator</h1>
+      </header>
+      <div class="inputField">
+        Amount <input type="number" id="principal" required />
+        <br />
 
-        Amount <input type="number"  id="principal">  <br/>
-        Rate <input type="number"  id="rate">  <br/>
-        No. of Years <input type="number"  id="years">  <br/>
-        Interest : <span id="result"></span><br>
+        Rate
+        <input
+          type="range"
+          id="rate"
+          oninput="updateRate()"
+          onchange="updateRate()"
+          min="1"
+          max="20"
+          value="10.25"
+          step="0.25"
+        />
+        <span id="rate_val">10.25%</span>
+        <br />
 
-        <button onclick="compute()">Compute</button>
-    </body>
+        No. of Years
+        <select id="years">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+
+        <button onclick="compute()">Compute Interest</button>
+
+        <div id="resultField">
+          <span id="result"></span>
+        </div>
+      </div>
+      <footer>&#169; This Calculator belongs to Adam Levente Soos</footer>
+    </div>
+  </body>
 </html>
